@@ -12,12 +12,15 @@
         }
     ],
     "require": {
-        "campaignchain/channel-twitter": "1.0.0-alpha.4"
+        "campaignchain/channel-twitter": "1.0.0@beta - 1.0.0@rc"
     },
     "autoload": {
         "psr-4": { "CampaignChain\\Location\\TwitterBundle\\": "" }
     },
     "extra": {
+        "branch-alias": {
+            "dev-1.0.0-beta.1": "1.0.0-dev"
+        },
         "campaignchain": {
             "kernel": {
                 "classes": [
