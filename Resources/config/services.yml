@@ -6,6 +6,9 @@
 # file that was distributed with this source code.
 
 parameters:
+    campaignchain.location.twitter.status:
+        bundle_name: "campaignchain/location-twitter"
+        module_identifier: "campaignchain-twitter-status"
 
 services:
     campaignchain.location.twitter_user:
