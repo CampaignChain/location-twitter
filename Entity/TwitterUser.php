@@ -11,6 +11,7 @@
 namespace CampaignChain\Location\TwitterBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use CampaignChain\CoreBundle\Util\ParserUtil;
 
 /**
  * @ORM\Entity
@@ -142,7 +143,7 @@ class TwitterUser
      */
     public function setProfileUrl($profileUrl)
     {
-        $this->profileUrl = $profileUrl;
+        $this->profileUrl = ParserUtil::sanitizeUrl($profileUrl);
 
         return $this;
     }
