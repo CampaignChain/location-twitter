@@ -14,3 +14,6 @@ services:
     campaignchain.location.twitter_user:
         class: CampaignChain\Location\TwitterBundle\EntityService\TwitterUserService
         arguments: [ @doctrine.orm.entity_manager, @service_container ]
+    campaignchain.job.report.location.twitter:
+        class: CampaignChain\Location\TwitterBundle\Job\ReportTwitterUserMetrics
+        arguments: [ @doctrine.orm.entity_manager, @service_container ]

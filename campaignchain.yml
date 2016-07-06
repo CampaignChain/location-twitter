@@ -8,5 +8,11 @@
 modules:
     campaignchain-twitter-user:
         display_name: Twitter user stream
+        services:
+            report: campaignchain.job.report.location.twitter
+        metrics:
+            location:
+                - "Followers"
+
     campaignchain-twitter-status:
         display_name: Twitter post (aka Tweet)
