@@ -8,6 +8,8 @@
 modules:
     campaignchain-twitter-user:
         display_name: Twitter user stream
+        channels:
+            - campaignchain/channel-twitter/campaignchain-twitter
         services:
             report: campaignchain.job.report.location.twitter
         metrics:
