@@ -17,8 +17,13 @@
 
 namespace CampaignChain\Location\TwitterBundle;
 
+use CampaignChain\Location\TwitterBundle\DependencyInjection\CampaignChainLocationTwitterExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CampaignChainLocationTwitterBundle extends Bundle
 {
+    public function getContainerExtension()
+    {
+        return new CampaignChainLocationTwitterExtension();
+    }
 }
