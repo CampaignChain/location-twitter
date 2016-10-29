@@ -15,7 +15,7 @@ namespace CampaignChain\Location\TwitterBundle\Job;
 use CampaignChain\CoreBundle\Entity\Location;
 use CampaignChain\CoreBundle\Entity\SchedulerReportLocation;
 use CampaignChain\CoreBundle\Job\JobReportInterface;
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ManagerRegistry;
 
 class ReportTwitterUserMetrics implements JobReportInterface
 {
@@ -27,9 +27,9 @@ class ReportTwitterUserMetrics implements JobReportInterface
 
     protected $message;
 
-    public function __construct(EntityManager $em, $container)
+    public function __construct(ManagerRegistry $managerRegistry, $container)
     {
-        $this->em = $em;
+        $this->em = $managerRegistry->getManager();
         $this->container = $container;
     }
 

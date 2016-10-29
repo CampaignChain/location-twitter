@@ -17,7 +17,7 @@
 
 namespace CampaignChain\Location\TwitterBundle\EntityService;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class TwitterUserService
@@ -26,9 +26,9 @@ class TwitterUserService
     protected $container;
 
 
-    public function __construct(EntityManager $em, ContainerInterface $container)
+    public function __construct(ManagerRegistry $managerRegistry, ContainerInterface $container)
     {
-        $this->em = $em;
+        $this->em = $managerRegistry->getManager();
         $this->container = $container;
     }
 
