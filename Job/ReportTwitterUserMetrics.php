@@ -12,6 +12,7 @@
 
 namespace CampaignChain\Location\TwitterBundle\Job;
 
+use CampaignChain\Channel\TwitterBundle\REST\TwitterClient;
 use CampaignChain\CoreBundle\Entity\Location;
 use CampaignChain\CoreBundle\Entity\SchedulerReportLocation;
 use CampaignChain\CoreBundle\Job\JobReportInterface;
@@ -51,12 +52,12 @@ class ReportTwitterUserMetrics implements JobReportInterface
     {
         $client = $this->container->get('campaignchain.channel.twitter.rest.client');
         $location = $this->em->getRepository('CampaignChainCoreBundle:Location')->find($locationId);
+        /** @var TwitterClient $connection */
         $connection = $client->connectByLocation($location);
 
         if ($connection) {
 
-            $request = $connection->get('users/show.json?user_id='.$location->getIdentifier());
-            $response = $request->send()->json();
+            $response = $connection->getUser($location->getIdentifier());
             $followers = $response['followers_count'];
         } else {
             return self::STATUS_ERROR;
