@@ -40,6 +40,7 @@ class ReportTwitterUserMetrics implements JobReportInterface
         $scheduler->setLocation($location);
         $scheduler->setInterval('1 hour');
         $this->em->persist($scheduler);
+        $this->em->flush();
 
         $facts[self::METRIC_FOLLOWERS] = 0;
 
